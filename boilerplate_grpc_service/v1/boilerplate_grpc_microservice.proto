@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package boilerplate_grpc_microservice_v1;
+
+option go_package = "boilerplate-grpc-microservice/boilerplate_grpc_service/v1/boilerplate_grpc_microservice.proto";
+
+
+service BoilerplateService {
+  rpc GetBoiler (GetBoilerRequest) returns (GetBoilerResponse) {}
+  rpc CreateBoiler (CreateBoilerRequest) returns (CreateBoilerResponse) {}
+}
+
+message GetBoilerRequest {
+  string boiler_name = 1;
+  optional string boiler_id = 2;
+  int32 boiler_stat = 3;
+}
+
+message Boiler {
+  string boiler_id = 1;
+  float boiler_temp = 2;
+}
+
+message GetBoilerResponse {
+  Boiler boiler = 1;
+}
+
+message CreateBoilerRequest {
+  Boiler boiler = 1;
+}
+
+message CreateBoilerResponse {
+  string boiler_id = 1;
+}
