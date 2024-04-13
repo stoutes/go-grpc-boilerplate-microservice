@@ -1,0 +1,10 @@
+type: google.api.service
+config_version: 3
+
+http:
+  rules:
+    - selector: boilerplate_grpc_microservice.v1.BoilerplateService.GetBoilers
+      get: /v1/boilers
+    - selector: boilerplate_grpc_microservice.v1.BoilerplateService.CreateBoiler
+      post: /v1/create-boiler
+      body: "*"
